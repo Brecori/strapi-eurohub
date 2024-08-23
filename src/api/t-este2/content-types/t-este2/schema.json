@@ -1,0 +1,22 @@
+{
+  "kind": "collectionType",
+  "collectionName": "t_este2s",
+  "info": {
+    "singularName": "t-este2",
+    "pluralName": "t-este2s",
+    "displayName": "TEste2"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "Conteudo": {
+      "type": "blocks",
+      "required": true
+    }
+  }
+}

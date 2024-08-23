@@ -1,0 +1,48 @@
+{
+  "kind": "collectionType",
+  "collectionName": "treinamentos",
+  "info": {
+    "singularName": "treinamento",
+    "pluralName": "treinamentos",
+    "displayName": "Treinamento",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "ContentTitle": {
+      "type": "string",
+      "required": true
+    },
+    "Conteudo": {
+      "type": "blocks"
+    },
+    "Imagem": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "testEnumeration": {
+      "type": "enumeration",
+      "enum": [
+        "teste",
+        "teste2",
+        "teste3"
+      ]
+    },
+    "markdown": {
+      "type": "richtext"
+    },
+    "testBoolean": {
+      "type": "boolean"
+    }
+  }
+}
