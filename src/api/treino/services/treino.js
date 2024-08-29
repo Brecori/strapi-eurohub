@@ -1,9 +1,9 @@
 'use strict';
 
 /**
- * t-este2 service
+ * treino service
  */
 
 const { createCoreService } = require('@strapi/strapi').factories;
 
-module.exports = createCoreService('api::t-este2.t-este2');
+module.exports = createCoreService('api::treino.treino');

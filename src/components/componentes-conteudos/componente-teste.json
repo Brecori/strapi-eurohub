@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_quiz_teste_componente_testes",
+  "info": {
+    "displayName": "ComponenteQuiz",
+    "icon": "check",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Questao": {
+      "type": "string"
+    },
+    "Respostas": {
+      "type": "blocks"
+    },
+    "NumeroResposta": {
+      "type": "integer",
+      "max": 4,
+      "min": 1
+    }
+  }
+}

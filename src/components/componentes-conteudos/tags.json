@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_treinamentos_tags",
+  "info": {
+    "displayName": "Tags",
+    "icon": "priceTag",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Tags": {
+      "type": "enumeration",
+      "enum": [
+        "Cultura",
+        "ESG",
+        "Diversidade",
+        "Onboarding",
+        "News"
+      ],
+      "required": true
+    }
+  }
+}

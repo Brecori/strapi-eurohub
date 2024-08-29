@@ -1,29 +1,25 @@
 {
   "kind": "collectionType",
-  "collectionName": "treinamentos",
+  "collectionName": "treinos",
   "info": {
-    "singularName": "treinamento",
-    "pluralName": "treinamentos",
-    "displayName": "Conteudos",
-    "description": ""
+    "singularName": "treino",
+    "pluralName": "treinos",
+    "displayName": "Treino"
   },
   "options": {
     "draftAndPublish": true
   },
   "pluginOptions": {},
   "attributes": {
-    "TituloPrincipal": {
+    "ContentTitle": {
       "type": "string",
       "required": true
     },
-    "Conteudo": {
-      "type": "blocks",
-      "required": true
+    "ContentDescription": {
+      "type": "text"
     },
-    "Descricao": {
-      "type": "text",
-      "required": true,
-      "maxLength": 100
+    "Content": {
+      "type": "blocks"
     },
     "Quiz": {
       "type": "component",

@@ -1,9 +1,9 @@
 'use strict';
 
 /**
- * t-este controller
+ * treino controller
  */
 
 const { createCoreController } = require('@strapi/strapi').factories;
 
-module.exports = createCoreController('api::t-este.t-este');
+module.exports = createCoreController('api::treino.treino');
