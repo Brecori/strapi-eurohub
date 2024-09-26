@@ -18,7 +18,8 @@
     },
     "employee_id": {
       "type": "biginteger",
-      "unique": true
+      "unique": true,
+      "required": true
     },
     "department": {
       "type": "string",

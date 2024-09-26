@@ -839,7 +839,7 @@ export interface ApiEmployeeEmployee extends Schema.CollectionType {
   };
   attributes: {
     name: Attribute.String & Attribute.Required;
-    employee_id: Attribute.BigInteger & Attribute.Unique;
+    employee_id: Attribute.BigInteger & Attribute.Required & Attribute.Unique;
     department: Attribute.String & Attribute.Required;
     birth_date: Attribute.Date & Attribute.Required;
     createdAt: Attribute.DateTime;
