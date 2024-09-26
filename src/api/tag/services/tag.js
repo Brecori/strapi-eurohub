@@ -1,9 +1,9 @@
 'use strict';
 
 /**
- * treinamento service
+ * tag service
  */
 
 const { createCoreService } = require('@strapi/strapi').factories;
 
-module.exports = createCoreService('api::treinamento.treinamento');
+module.exports = createCoreService('api::tag.tag');

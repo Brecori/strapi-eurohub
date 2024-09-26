@@ -1,9 +1,9 @@
 'use strict';
 
 /**
- * treinamento router
+ * tag router
  */
 
 const { createCoreRouter } = require('@strapi/strapi').factories;
 
-module.exports = createCoreRouter('api::treinamento.treinamento');
+module.exports = createCoreRouter('api::tag.tag');

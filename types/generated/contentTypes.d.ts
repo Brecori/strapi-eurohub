@@ -362,77 +362,6 @@ export interface AdminTransferTokenPermission extends Schema.CollectionType {
   };
 }
 
-export interface ApiTreinamentoTreinamento extends Schema.CollectionType {
-  collectionName: 'treinamentos';
-  info: {
-    singularName: 'treinamento';
-    pluralName: 'treinamentos';
-    displayName: 'Conteudos';
-    description: '';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    TituloPrincipal: Attribute.String & Attribute.Required;
-    Conteudo: Attribute.Blocks & Attribute.Required;
-    Descricao: Attribute.Text &
-      Attribute.Required &
-      Attribute.SetMinMaxLength<{
-        maxLength: 100;
-      }>;
-    Quiz: Attribute.Component<'componentes-conteudos.componente-teste', true>;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::treinamento.treinamento',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::treinamento.treinamento',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
-export interface ApiTreinoTreino extends Schema.CollectionType {
-  collectionName: 'treinos';
-  info: {
-    singularName: 'treino';
-    pluralName: 'treinos';
-    displayName: 'Treino';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    ContentTitle: Attribute.String & Attribute.Required;
-    ContentDescription: Attribute.Text;
-    Content: Attribute.Blocks;
-    Quiz: Attribute.Component<'componentes-conteudos.componente-teste', true>;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::treino.treino',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::treino.treino',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
 export interface PluginUploadFile extends Schema.CollectionType {
   collectionName: 'files';
   info: {
@@ -859,6 +788,140 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
   };
 }
 
+export interface ApiConhecimentoConhecimento extends Schema.CollectionType {
+  collectionName: 'conhecimentos';
+  info: {
+    singularName: 'conhecimento';
+    pluralName: 'conhecimentos';
+    displayName: 'Conhecimento';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    ContentTitle: Attribute.String;
+    ContentDescription: Attribute.Text;
+    Content: Attribute.Blocks;
+    Tags: Attribute.Relation<
+      'api::conhecimento.conhecimento',
+      'oneToMany',
+      'api::tag.tag'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::conhecimento.conhecimento',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::conhecimento.conhecimento',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiEmployeeEmployee extends Schema.CollectionType {
+  collectionName: 'employees';
+  info: {
+    singularName: 'employee';
+    pluralName: 'employees';
+    displayName: 'Employee';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String & Attribute.Required;
+    employee_id: Attribute.BigInteger & Attribute.Unique;
+    department: Attribute.String & Attribute.Required;
+    birth_date: Attribute.Date & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::employee.employee',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::employee.employee',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiTagTag extends Schema.CollectionType {
+  collectionName: 'tags';
+  info: {
+    singularName: 'tag';
+    pluralName: 'tags';
+    displayName: 'Tag';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    TagName: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<'api::tag.tag', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<'api::tag.tag', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+  };
+}
+
+export interface ApiTreinoTreino extends Schema.CollectionType {
+  collectionName: 'treinos';
+  info: {
+    singularName: 'treino';
+    pluralName: 'treinos';
+    displayName: 'Treino';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    ContentTitle: Attribute.String & Attribute.Required;
+    ContentDescription: Attribute.Text;
+    Content: Attribute.Blocks;
+    Quiz: Attribute.Component<'componentes-conteudos.componente-teste', true>;
+    employees: Attribute.Relation<
+      'api::treino.treino',
+      'oneToMany',
+      'api::employee.employee'
+    >;
+    expireDate: Attribute.DateTime;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::treino.treino',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::treino.treino',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -869,8 +932,6 @@ declare module '@strapi/types' {
       'admin::api-token-permission': AdminApiTokenPermission;
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
-      'api::treinamento.treinamento': ApiTreinamentoTreinamento;
-      'api::treino.treino': ApiTreinoTreino;
       'plugin::upload.file': PluginUploadFile;
       'plugin::upload.folder': PluginUploadFolder;
       'plugin::content-releases.release': PluginContentReleasesRelease;
@@ -879,6 +940,10 @@ declare module '@strapi/types' {
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
+      'api::conhecimento.conhecimento': ApiConhecimentoConhecimento;
+      'api::employee.employee': ApiEmployeeEmployee;
+      'api::tag.tag': ApiTagTag;
+      'api::treino.treino': ApiTreinoTreino;
     }
   }
 }

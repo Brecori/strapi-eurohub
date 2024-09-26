@@ -1,0 +1,29 @@
+{
+  "kind": "collectionType",
+  "collectionName": "conhecimentos",
+  "info": {
+    "singularName": "conhecimento",
+    "pluralName": "conhecimentos",
+    "displayName": "Conhecimento",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "ContentTitle": {
+      "type": "string"
+    },
+    "ContentDescription": {
+      "type": "text"
+    },
+    "Content": {
+      "type": "blocks"
+    },
+    "Tags": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::tag.tag"
+    }
+  }
+}
