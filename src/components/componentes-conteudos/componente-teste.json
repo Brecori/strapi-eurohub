@@ -8,15 +8,19 @@
   "options": {},
   "attributes": {
     "Questao": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "Respostas": {
-      "type": "blocks"
+      "type": "blocks",
+      "required": true
     },
     "NumeroResposta": {
       "type": "integer",
-      "max": 4,
-      "min": 1
+      "max": 5,
+      "min": 1,
+      "required": true,
+      "default": 1
     }
   }
 }

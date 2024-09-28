@@ -8,16 +8,18 @@ export interface ComponentesConteudosComponenteTeste extends Schema.Component {
     description: '';
   };
   attributes: {
-    Questao: Attribute.String;
-    Respostas: Attribute.Blocks;
+    Questao: Attribute.String & Attribute.Required;
+    Respostas: Attribute.Blocks & Attribute.Required;
     NumeroResposta: Attribute.Integer &
+      Attribute.Required &
       Attribute.SetMinMax<
         {
           min: 1;
-          max: 4;
+          max: 5;
         },
         number
-      >;
+      > &
+      Attribute.DefaultTo<1>;
   };
 }
 

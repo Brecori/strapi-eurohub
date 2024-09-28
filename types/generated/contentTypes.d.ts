@@ -800,10 +800,13 @@ export interface ApiConhecimentoConhecimento extends Schema.CollectionType {
     draftAndPublish: true;
   };
   attributes: {
-    ContentTitle: Attribute.String;
-    ContentDescription: Attribute.Text;
-    Content: Attribute.Blocks;
-    Tags: Attribute.Relation<
+    ContentTitle: Attribute.String & Attribute.Required;
+    ContentDescription: Attribute.Text &
+      Attribute.SetMinMaxLength<{
+        maxLength: 200;
+      }>;
+    Content: Attribute.Blocks & Attribute.Required;
+    tags: Attribute.Relation<
       'api::conhecimento.conhecimento',
       'oneToMany',
       'api::tag.tag'
@@ -860,6 +863,38 @@ export interface ApiEmployeeEmployee extends Schema.CollectionType {
   };
 }
 
+export interface ApiPdfUploaderPdfUploader extends Schema.CollectionType {
+  collectionName: 'pdf_uploaders';
+  info: {
+    singularName: 'pdf-uploader';
+    pluralName: 'pdf-uploaders';
+    displayName: 'PdfUploader';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    PdfTitle: Attribute.String & Attribute.Required;
+    PdfFile: Attribute.Media<'files'> & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::pdf-uploader.pdf-uploader',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::pdf-uploader.pdf-uploader',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiTagTag extends Schema.CollectionType {
   collectionName: 'tags';
   info: {
@@ -895,15 +930,15 @@ export interface ApiTreinoTreino extends Schema.CollectionType {
   };
   attributes: {
     ContentTitle: Attribute.String & Attribute.Required;
-    ContentDescription: Attribute.Text;
-    Content: Attribute.Blocks;
+    ContentDescription: Attribute.Text & Attribute.Required;
+    Content: Attribute.Blocks & Attribute.Required;
     Quiz: Attribute.Component<'componentes-conteudos.componente-teste', true>;
     employees: Attribute.Relation<
       'api::treino.treino',
       'oneToMany',
       'api::employee.employee'
     >;
-    expireDate: Attribute.DateTime;
+    expireDate: Attribute.DateTime & Attribute.Required;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -942,6 +977,7 @@ declare module '@strapi/types' {
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'api::conhecimento.conhecimento': ApiConhecimentoConhecimento;
       'api::employee.employee': ApiEmployeeEmployee;
+      'api::pdf-uploader.pdf-uploader': ApiPdfUploaderPdfUploader;
       'api::tag.tag': ApiTagTag;
       'api::treino.treino': ApiTreinoTreino;
     }

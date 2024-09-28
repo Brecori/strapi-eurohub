@@ -12,15 +12,18 @@
   },
   "attributes": {
     "ContentTitle": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "ContentDescription": {
-      "type": "text"
+      "type": "text",
+      "maxLength": 200
     },
     "Content": {
-      "type": "blocks"
+      "type": "blocks",
+      "required": true
     },
-    "Tags": {
+    "tags": {
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::tag.tag"

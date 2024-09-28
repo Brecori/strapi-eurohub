@@ -1,0 +1,28 @@
+{
+  "kind": "collectionType",
+  "collectionName": "pdf_uploaders",
+  "info": {
+    "singularName": "pdf-uploader",
+    "pluralName": "pdf-uploaders",
+    "displayName": "PdfUploader",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "PdfTitle": {
+      "type": "string",
+      "required": true
+    },
+    "PdfFile": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "files"
+      ]
+    }
+  }
+}

@@ -17,10 +17,12 @@
       "required": true
     },
     "ContentDescription": {
-      "type": "text"
+      "type": "text",
+      "required": true
     },
     "Content": {
-      "type": "blocks"
+      "type": "blocks",
+      "required": true
     },
     "Quiz": {
       "type": "component",
@@ -33,7 +35,8 @@
       "target": "api::employee.employee"
     },
     "expireDate": {
-      "type": "datetime"
+      "type": "datetime",
+      "required": true
     }
   }
 }
